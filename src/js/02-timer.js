@@ -46,10 +46,10 @@ flatpickr("#datetime-picker", options);
     
 function onClickBtnStart() {
     const { days, hours, minutes, seconds } = convertMs(userDateTime - Date.now())
-    day.textContent = pad(days)
-    hour.textContent = pad(hours)
-    minute.textContent = pad(minutes)
-    second.textContent = pad(seconds)
+    day.textContent = addLeadingZero(days)
+    hour.textContent = addLeadingZero(hours)
+    minute.textContent = addLeadingZero(minutes)
+    second.textContent = addLeadingZero(seconds)
     inputDate.disabled = true
     btnStart.disabled = true
     btnStop.disabled = false
@@ -62,17 +62,16 @@ function onClickBtnStart() {
             timerEnd = 0;
         }
         const { days, hours, minutes, seconds } = convertMs(timerEnd)
-        day.textContent = pad(days)
-        hour.textContent = pad(hours)
-        minute.textContent = pad(minutes)
-        second.textContent = pad(seconds)
+        day.textContent = addLeadingZero(days)
+        hour.textContent = addLeadingZero(hours)
+        minute.textContent = addLeadingZero(minutes)
+        second.textContent = addLeadingZero(seconds)
         
     }, 1000)
         
 };
-
-function pad(string) {
-   return string.toString().padStart(2,'0')    
+addLeadingZero(value){
+ return string.toString().padStart(2,'0')    
 }
 
 function convertMs(ms) {
