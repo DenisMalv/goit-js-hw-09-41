@@ -70,8 +70,8 @@ function onClickBtnStart() {
     }, 1000)
         
 };
-addLeadingZero(value){
- return string.toString().padStart(2,'0')    
+function addLeadingZero(value){
+ return value.toString().padStart(2,'0')    
 }
 
 function convertMs(ms) {
