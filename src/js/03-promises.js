@@ -15,8 +15,9 @@ function onFormSubmit(event) {
     return Notify.failure(`
 ❗ You must only enter positive values, otherwise it is nonsense. 🤭`);
   }
-  for (let position = 1; position <= amount; position += 1){
-    let delay =(+firstDelay) + (+step) * position
+  for (let position = 0; position < amount; position += 1){
+    let delay = (+firstDelay) + (+step) * position
+    
     console.log({position,delay})
     createPromise(position, delay)
     .then(({ position, delay }) => {
@@ -29,6 +30,11 @@ function onFormSubmit(event) {
   formData = {}
   form.reset()
 }
+
+// let delay = (+firstDelay)
+//     if (position !== 0) {
+//       delay +=(+step)*position
+//     }
 
 function onFormInput(event) {
   formData[event.target.name] = event.target.value
