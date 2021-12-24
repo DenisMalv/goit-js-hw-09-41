@@ -11,7 +11,10 @@ function onFormSubmit(event) {
   event.preventDefault();
   const { delay: firstDelay, step, amount } = formData
   console.log(firstDelay, step, amount)
-  
+  if (firstDelay < 0 || step < 0 || amount <0) {
+    return Notify.failure(`
+❗ You must only enter positive values, otherwise it is nonsense. 🤭`);
+  }
   for (let position = 1; position <= amount; position += 1){
     let delay =(+firstDelay) + (+step) * position
     console.log({position,delay})
