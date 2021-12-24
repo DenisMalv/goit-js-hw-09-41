@@ -24,6 +24,7 @@ function onFormSubmit(event) {
     });
   }
   formData = {}
+  form.reset()
 }
 
 function onFormInput(event) {
